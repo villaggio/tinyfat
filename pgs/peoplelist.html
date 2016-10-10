@@ -1,11 +1,13 @@
 <h2>
 	Persone
 </h2>
+<section class="w3-row">
+<aside class="w3-container w3-third">
 <!-- lista che conterrà una riga per ogni persona  presente nel db -->
 <ul id="peoplelist" class="w3-ul w3-border">
 	<!-- lista con link per creare una nuova persona, che comparirà sempre -->
 	<li class="w3-clear w3-padding-16 w3-green">
-		<a href="#/people" style="text-decoration:none!important;width:100%">
+		<a href="#/people" style="text-decoration:none!important;">
 			<img src="http://placehold.it/64x64" class="w3-left w3-circle" style="width:64px;vertical-align:center;padding-right:1em">
 			<h3>Nuova persona</h3>
 		</a>
@@ -14,10 +16,14 @@
 <li class="h w3-clear w3-padding-16" id="peoplerow">
 	<a href="" style="text-decoration:none!important;width:100%">
 		<img src="http://placehold.it/64x64" class="w3-left w3-circle" style="width:64px;vertical-align:center;padding-right:1em">
-		<h3 class="nome"></h3>
+		<h3><span class="nome"></span></h3>
 	</a>
+	<small class="w3-btn open w3-blue">Apri</small>
 </li>
-
+</aside>
+<article class="w3-rest" id="preview">
+	<h3>test</h3>
+</article>
 <script>
 a.p={}
 a.p.fillList=function(dt){
@@ -25,6 +31,7 @@ a.p.fillList=function(dt){
 	var id='people-'+dt.id
 	$('#peoplerow .nome').text(d.nome)
 	$('#peoplerow a').attr('href','#/people/'+dt.id)
+	$('#peoplerow .open').attr('onclick','a.id="'+dt.id+'";$("#preview").load(a.v+"people.html")')
 	$("#peoplerow").clone().attr('id',id).removeClass('h').prependTo($('#peoplelist'))
 }
 a.p.prt=function(){
