@@ -27,7 +27,7 @@ a.p.fillList=function(dt){
 	$('#peoplerow a').attr('href','#/people/'+dt.id)
 	$("#peoplerow").clone().attr('id',id).removeClass('h').prependTo($('#peoplelist'))
 }
-a.p.pr=function(){
+a.p.prt=function(){
 		var url= a.s + '_design/people/_view/titles'
 		var queryP={
 			"selector": {"type": "persona"},
@@ -50,7 +50,7 @@ a.p.pr=function(){
 			}
 		)
 	}
-a.p.pro=function(){
+a.p.pr=function(){
 	$.ajax({url: a.s + '_design/people/_view/titles'}).then(
 		function(data) {
 			a.p.data=JSON.parse(data)
@@ -58,5 +58,5 @@ a.p.pro=function(){
 		}
 	)
 }	
-$(a.p.pro)
+$(a.p.pr)
 </script>
