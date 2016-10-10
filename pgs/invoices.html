@@ -13,7 +13,7 @@
         <h2>
 	        Ricevuta # <span id="_id"></span>
         </h2>
-        <form class="w3-container">
+        <form class="w3-container" onsubmit="a.p.save();return false;">
             <label>Nome</label>
             <input class="w3-input" type="text" name="nome" autofocus required />
             <label>Codice Fiscale</label>
@@ -22,6 +22,7 @@
             <input class="w3-input" type="date" name="dataemissione" />
             <label>Note</label>
             <textarea class="w3-input" name="note"></textarea>
+            <input type="submit" class="h" />
         </form>
         <p class="ar">
             <button onclick="a.p.save()" class="w3-btn w3-blue" accesskey="s">Salva</button>
@@ -104,7 +105,7 @@ a.p.pr=function(){
 	//se ho specificato un ID nell'url tento di recuperare le informazioni relative a quel documento nel database
 	a.p.getInvoice()
     a.p.getList()
-    $('#newbtn').on('click',function(){a.goTo('invoices/0/?rnd='+Math.random())})
+    $('#newbtn').on('click',function(){a.goTo('invoices/?rnd='+Math.random())})
     $('[name="nome"]').focus()
 }
 $(a.p.pr)
