@@ -28,12 +28,35 @@ a.p.fillList=function(dt){
 	$("#peoplerow").clone().attr('id',id).removeClass('h').prependTo($('#peoplelist'))
 }
 a.p.pr=function(){
-		$.ajax({url: a.s + '_design/people/_view/titles'}).then(
+		var url= a.s + '_design/people/_view/titles'
+		var queryP={
+			"selector": {"type": "persona"},
+			"fields": ["_id", "nome"],
+			"sort": [{"nome": "asc"}],
+			"limit": 100,
+			"skip": 0
+		}
+		url=a.s+'_find/'
+		$.ajax({
+			url: url,
+			type: 'POST',
+			contentType: 'application/json',
+			data:JSON.stringify(queryP),
+			
+		}).then(
 			function(data) {
 				a.p.data=JSON.parse(data)
 				a.p.data.rows.map(a.p.fillList)
 			}
 		)
 	}
-$(a.p.pr)
+a.p.pro=function(){
+	$.ajax({url: a.s + '_design/people/_view/titles'}).then(
+		function(data) {
+			a.p.data=JSON.parse(data)
+			a.p.data.rows.map(a.p.fillList)
+		}
+	)
+}	
+$(a.p.pro)
 </script>

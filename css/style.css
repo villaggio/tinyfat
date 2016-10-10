@@ -1,5 +1,9 @@
 html,body {font-size:12px;}
 html{overflow-y: scroll;}
-.h{visibility:hidden}
+input{font-weight:bold}
+.a4p{width:794px;height:1123px;overflow:hidden;padding-left:76px;padding-right:57px;}
+.a4l{width:1123px;height:794px;overflow:hidden;}
+.paper{background-color:#fff;border:0;margin:1px 1px 10px 1px;box-shadow:0 0 0 1px #d1d1d1,0 0 4px 1px #ccc;margin:24px auto 24px auto;max-width:90%;padding:38px;}
+.h{visibility:hidden!important}
 #nav{position:fixed;top:0;left:0;height:1em;width:100%}
 #all{padding:1em;margin:1.2em auto}
